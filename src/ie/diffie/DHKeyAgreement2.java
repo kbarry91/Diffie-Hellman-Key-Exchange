@@ -53,14 +53,21 @@ public class DHKeyAgreement2 {
 	        aliceKpairGen.initialize(2048);
 	        KeyPair aliceKpair = aliceKpairGen.generateKeyPair();
 	        
+	        // test
+	        System.out.println(aliceKpair.toString());
+	        
 	        // Alice creates and initializes her DH KeyAgreement object
 	        System.out.println("ALICE: Initialization ...");
 	        KeyAgreement aliceKeyAgree = KeyAgreement.getInstance("DH");
 	        aliceKeyAgree.init(aliceKpair.getPrivate());
 	        
+	        //test
+	        System.out.println(" aliceKeyAgree.init(aliceKpair.getPrivate()):"+ aliceKpair.getPrivate().toString());
 	        // Alice encodes her public key, and sends it over to Bob.
 	        byte[] alicePubKeyEnc = aliceKpair.getPublic().getEncoded();
-	        
+	      
+	        // test 
+	        System.out.println("alicePubKeyEnc:"+alicePubKeyEnc);
 	        /*
 	         * Let's turn over to Bob. Bob has received Alice's public key
 	         * in encoded format.
